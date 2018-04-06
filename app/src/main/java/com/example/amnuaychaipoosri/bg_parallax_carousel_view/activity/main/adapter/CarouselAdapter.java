@@ -8,7 +8,6 @@ import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,23 +87,25 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                         super.onScrolled(recyclerView, dx, dy);
 
-                        // Get first visible item
+                        // Check if the the visible item is the first item
                         if (vh.linearLayoutManager.findFirstVisibleItemPosition()==0)
                         {
+                            // Get view of the first item
                             View firstVisibleItem = vh.linearLayoutManager.findViewByPosition(vh.linearLayoutManager.findFirstVisibleItemPosition());
-                            int leftScrollXCalculated = firstVisibleItem.getLeft();
+                            float distanceFromLeft = firstVisibleItem.getLeft(); // distance from the left
+                            float itemSize = firstVisibleItem.getWidth(); // view size
+                            float translateX = (int)distanceFromLeft * 0.2f; // x distance
 
-                            float x = leftScrollXCalculated * 0.2f;
-                            vh.bgIv.setTranslationX(leftScrollXCalculated * 0.2f);
+                            // Move the image to the left to achieve parallax
+                            vh.bgIv.setTranslationX(translateX);
 
-                            // Calculate color view transparency
-                            float distanceFromLeft = firstVisibleItem.getLeft();
-                            if (distanceFromLeft<=0) {
-                                float alpha = (float) ((Math.abs(distanceFromLeft) / (float) firstVisibleItem.getWidth()) * 0.80);
+                            // If the view scroll pass the starting position, change color view alpha
+                            if (distanceFromLeft <= 0) {
+                                float alpha = (Math.abs(distanceFromLeft) / itemSize * 0.80f);
+                                //Set alpha to image to bring 'fade out' and 'fade in' effect
                                 vh.bgIv.setAlpha(1 - alpha);
+                                //Set alpha to color view to bring 'darker' and 'clearer' effect
                                 vh.alphaView.setAlpha(alpha);
-                                Log.d("PPPPP1", "Alpha: " + alpha);
-                                Log.d("PPPPP2", "FirstVisibleItem: " + firstVisibleItem.getLeft());
                             }
                         }
                     }
@@ -151,6 +152,7 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
+    // Add blur to bitmap
     private Bitmap createBlurBitmap(Bitmap src, float r) {
         if (r <= 0) {
             r = 0.1f;
