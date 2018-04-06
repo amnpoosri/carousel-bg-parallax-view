@@ -26,8 +26,8 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private ItemsListModel itemsListModel = null;
     private Context context;
 
-    private final static int HORIZONTAL_VIEW_TYPE = 100;
-    private final static int HORIZONTAL_INVISIBLE_START_VIEW_TYPE = 101;
+    private final static int CAROUSEL_NORMAL_VIEW_TYPE = 100;
+    private final static int CAROUSEL_PARALLAX_BG_VIEW_TYPE = 101;
 
     public CarouselAdapter(Context context, ItemsListModel itemsListModel) {
         this.context = context;
@@ -41,7 +41,7 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == HORIZONTAL_INVISIBLE_START_VIEW_TYPE)
+        if (viewType == CAROUSEL_PARALLAX_BG_VIEW_TYPE)
             return new CarouselBgParallaxViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.viewholder_carousel_bg_parallax, parent, false));
         else
@@ -57,14 +57,14 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             CarouselViewHolder vh = (CarouselViewHolder) holder;
             vh.titleTv.setText(itemsList.getItemTitle());
             if (vh.gridAdapter == null) {
-                vh.setHorizontalAdapter(context, itemsList.getItems(),false);
+                vh.setCarouselAdapter(context, itemsList.getItems(),false);
             } else {
                 vh.updateGridAdapter(itemsList.getItems());
             }
             vh.li.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                //TODO: Add on click here
                 }
             });
         }
@@ -111,7 +111,7 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     }
                 });
 
-                vh.setHorizontalAdapter(context, itemsList.getItems(), true);
+                vh.setCarouselAdapter(context, itemsList.getItems(), true);
 
             } else {
                 vh.updateGridAdapter(itemsList.getItems());
@@ -119,7 +119,7 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             vh.li.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    //TODO: Add on click here
                 }
             });
         }
@@ -140,15 +140,15 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public int getItemViewType(int position) {
         try {
             if (itemsListModel.getItemsList().get(position).getType().equals(Constant.CarouselType.NORMAL))
-                return HORIZONTAL_VIEW_TYPE;
+                return CAROUSEL_NORMAL_VIEW_TYPE;
             else if (itemsListModel.getItemsList().get(position).getType().equals(Constant.CarouselType.BG_PARALLAX))
-                return HORIZONTAL_INVISIBLE_START_VIEW_TYPE;
+                return CAROUSEL_PARALLAX_BG_VIEW_TYPE;
             else
-                return HORIZONTAL_VIEW_TYPE;
+                return CAROUSEL_NORMAL_VIEW_TYPE;
         }
         catch (Exception e)
         {
-            return HORIZONTAL_VIEW_TYPE;
+            return CAROUSEL_NORMAL_VIEW_TYPE;
         }
     }
 
@@ -176,13 +176,11 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         return bitmap;
     }
-    //
-//    public interface OnApplicationItemClickListener {
-//        void onApplicationClicked(ApplicationDao application);
+      // Callback interface
+//    public interface OnItemClickListener {
+//        void OnItemClicked();
 //    }
 //
-//    public interface OnTraceListener {
-//        void onItemShown(int position);
-//    }
+
 
 }

@@ -19,12 +19,12 @@ public class CarouselItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private List<Item> items;
     private Context context;
-    private boolean isInvisibleStart;
+    private boolean isInvisible;
 
-    private final static int INVISIBLE_START_VIEW_TYPE = 100;
+    private final static int INVISIBLE_VIEW_TYPE = 100;
     public CarouselItemAdapter(Context context, boolean isInvisibleStart) {
         this.context = context;
-        this.isInvisibleStart = isInvisibleStart;
+        this.isInvisible= isInvisibleStart;
     }
 
     public void setDao(List<Item> items) {
@@ -33,7 +33,7 @@ public class CarouselItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == INVISIBLE_START_VIEW_TYPE)
+        if (viewType == INVISIBLE_VIEW_TYPE)
             return new CarouselInvisbileItemViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.viewholder_carousel_invisible_item, parent, false));
         else
@@ -44,7 +44,7 @@ public class CarouselItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof CarouselItemViewHolder) {
-            if (isInvisibleStart)
+            if (isInvisible)
                 position=position-1;
             final Item item = items.get(position);
             CarouselItemViewHolder vh = (CarouselItemViewHolder) holder;
@@ -71,15 +71,15 @@ public class CarouselItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public int getItemCount() {
         if (items == null)
             return 0;
-        if (isInvisibleStart)
+        if (isInvisible)
             return items.size()+1;
         return items.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (isInvisibleStart && position==0)
-            return INVISIBLE_START_VIEW_TYPE;
+        if (isInvisible && position==0)
+            return INVISIBLE_VIEW_TYPE;
         return super.getItemViewType(position);
     }
 }

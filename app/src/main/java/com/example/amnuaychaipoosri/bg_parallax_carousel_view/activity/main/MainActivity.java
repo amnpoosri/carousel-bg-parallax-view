@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity implements IMainActivity.View {
         setContentView(R.layout.activity_main);
         mPresenter = new MainActivityPresenterImpl(this);
         initInflate();
-        initInstance();
+        initInstance(savedInstanceState);
         mPresenter.viewOnCreate();
     }
 
@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity implements IMainActivity.View {
         progressBar = findViewById(R.id.activity_main_progressBar);
     }
 
-    private void initInstance() {
+    private void initInstance(Bundle savedInstanceState) {
         // initial something HERE.
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         carouselAdapter = new CarouselAdapter(this, itemsListModel);

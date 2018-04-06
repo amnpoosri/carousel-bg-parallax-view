@@ -42,7 +42,7 @@ public class CarouselViewHolder extends RecyclerView.ViewHolder{
         SnapHelper snapHelperStart = new GravitySnapHelper(Gravity.START);
         snapHelperStart.attachToRecyclerView(horizontalRv);
     }
-    public void setHorizontalAdapter(Context context, List<Item> items, boolean isInvisibleStart) {
+    public void setCarouselAdapter(Context context, List<Item> items, boolean isInvisibleStart) {
         this.items = items;
         gridAdapter = new CarouselItemAdapter(context, isInvisibleStart);
         gridAdapter.setDao(items);

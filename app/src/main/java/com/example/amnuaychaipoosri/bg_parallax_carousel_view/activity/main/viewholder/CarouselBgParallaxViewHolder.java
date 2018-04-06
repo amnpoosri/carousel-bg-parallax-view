@@ -26,7 +26,7 @@ public class CarouselBgParallaxViewHolder extends RecyclerView.ViewHolder{
     public LinearLayout li;
     public CarouselItemAdapter gridAdapter;
     public LinearLayoutManager linearLayoutManager;
-    private List<Item> items;
+//    private List<Item> items;
     public View alphaView;
     public CarouselBgParallaxViewHolder(View itemView) {
         super(itemView);
@@ -45,15 +45,15 @@ public class CarouselBgParallaxViewHolder extends RecyclerView.ViewHolder{
 
 
     }
-    public void setHorizontalAdapter(Context context, List<Item> items, boolean isInvisibleStart) {
-        this.items = items;
+    public void setCarouselAdapter(Context context, List<Item> items, boolean isInvisibleStart) {
+//        this.items = items;
         gridAdapter = new CarouselItemAdapter(context, isInvisibleStart);
         gridAdapter.setDao(items);
         horizontalRv.setAdapter(gridAdapter);
     }
 
     public void updateGridAdapter(List<Item> items) {
-        this.items = items;
+//        this.items = items;
         gridAdapter.setDao(items);
         gridAdapter.notifyDataSetChanged();
     }

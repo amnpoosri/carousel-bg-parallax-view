@@ -71,7 +71,6 @@ public class MainActivityPresenterImpl implements IMainActivity.Presenter {
                     view.updateAdapterData(itemsListModel);
                 } else {
                     //case error;
-
                 }
             }
 
