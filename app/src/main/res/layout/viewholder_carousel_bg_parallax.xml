@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="232dp" >
+
+        <!--Background Image-->
+        <ImageView
+            android:id="@+id/viewholder_carousel_bg_parallax_bg_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            android:layout_marginStart="-40dp"
+            android:layout_marginEnd="-40dp"/>
+
+        <!--Filter View to soften the background image-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/base_color_black_alpha_30"/>
+
+        <!--Color View-->
+        <View
+            android:id="@+id/viewholder_carousel_bg_parallax_alpha_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:alpha="0"/>
+    </FrameLayout>
+
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/viewholder_carousel_bg_parallax_li"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/viewholder_carousel_bg_parallax_title_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/text_small"
+                android:textColor="@color/base_color_white"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textSize="@dimen/text_tiny"
+                android:textColor="@color/base_color_white"
+                android:text="@string/view_all"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!--Carousel Recycler View-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/viewholder_carousel_bg_parallax_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="4dp"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--Background-->
+    <color name="background_gray">#a7a7a7</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Base Color : Don't use it directly -->
+    <color name="base_color_yellow">#ffe100</color>
+    <color name="base_color_extra_light_yellow">#fffbd9</color>
+    <color name="base_color_yellow_green">#cdef62</color>
+    <color name="base_color_dim_yellow_green">#aee144</color>
+    <color name="base_color_green">#8dc63f</color>
+    <color name="base_color_splash_screen_green">#8bc53f</color>
+    <color name="base_color_dark_green">#74a822</color>
+    <color name="base_color_medium_aquamarine">#32ceb0</color>
+    <color name="base_color_aquamarine">#1db195</color>
+    <color name="base_color_light_coral">#ff807d</color>
+    <color name="base_color_coral">#ea625e</color>
+    <color name="base_color_orange">#ff9f50</color>
+    <color name="base_color_dim_orange">#f78d3e</color>
+    <color name="base_color_dark_orange">#e28436</color>
+    <color name="base_color_light_purple">#a9a9f7</color>
+    <color name="base_color_purple">#7f7fde</color>
+    <color name="base_color_dim_brown">#604e48</color>
+    <color name="base_color_dark_brown">#58443d</color>
+    <color name="base_color_dark_gray">#808080</color>
+    <color name="base_color_medium_gray">#999999</color>
+    <color name="base_color_gray">#cccccc</color>
+    <color name="base_color_light_gray">#d5d5d5</color>
+    <color name="base_color_dim_light_gray">#b9b9b9</color>
+    <color name="base_color_extra_light_gray">#e6e6e6</color>
+    <color name="base_color_extra_extra_light_gray">#F0F0F0</color>
+    <color name="base_color_white">#ffffff</color>
+    <color name="base_color_white_alpha_10">#10ffffff</color>
+    <color name="base_color_white_alpha_20">#20ffffff</color>
+    <color name="base_color_white_alpha_60">#60ffffff</color>
+    <color name="base_color_white_alpha_80">#80ffffff</color>
+    <color name="base_color_white_alpha_99">#99ffffff</color>
+    <color name="base_color_black">#000000</color>
+    <color name="base_color_black_alpha_10">#10000000</color>
+    <color name="base_color_black_alpha_20">#20000000</color>
+    <color name="base_color_black_alpha_30">#30000000</color>
+    <color name="base_color_black_alpha_60">#60000000</color>
+    <color name="base_color_black_alpha_80">#80000000</color>
+    <color name="base_color_black_alpha_99">#99000000</color>
+    <color name="base_color_clear_transparent">#00000000</color>
+
+    <color name="base_color_white_percentage_alpha_5">#0dffffff</color>
+    <color name="base_color_white_percentage_alpha_10">#1affffff</color>
+    <color name="base_color_white_percentage_alpha_15">#26ffffff</color>
+    <color name="base_color_white_percentage_alpha_20">#33ffffff</color>
+    <color name="base_color_white_percentage_alpha_25">#40ffffff</color>
+    <color name="base_color_white_percentage_alpha_30">#4dffffff</color>
+    <color name="base_color_white_percentage_alpha_35">#59ffffff</color>
+    <color name="base_color_white_percentage_alpha_40">#66ffffff</color>
+    <color name="base_color_white_percentage_alpha_45">#73ffffff</color>
+    <color name="base_color_white_percentage_alpha_50">#80ffffff</color>
+    <color name="base_color_white_percentage_alpha_55">#8cffffff</color>
+    <color name="base_color_white_percentage_alpha_60">#99ffffff</color>
+    <color name="base_color_white_percentage_alpha_65">#a6ffffff</color>
+    <color name="base_color_white_percentage_alpha_70">#b3ffffff</color>
+    <color name="base_color_white_percentage_alpha_75">#bfffffff</color>
+    <color name="base_color_white_percentage_alpha_80">#ccffffff</color>
+    <color name="base_color_white_percentage_alpha_85">#d9ffffff</color>
+    <color name="base_color_white_percentage_alpha_90">#e6ffffff</color>
+    <color name="base_color_white_percentage_alpha_95">#f2ffffff</color>
+
+    <color name="base_color_black_percentage_alpha_5">#0d000000</color>
+    <color name="base_color_black_percentage_alpha_10">#1a000000</color>
+    <color name="base_color_black_percentage_alpha_15">#26000000</color>
+    <color name="base_color_black_percentage_alpha_20">#33000000</color>
+    <color name="base_color_black_percentage_alpha_25">#40000000</color>
+    <color name="base_color_black_percentage_alpha_30">#4d000000</color>
+    <color name="base_color_black_percentage_alpha_35">#59000000</color>
+    <color name="base_color_black_percentage_alpha_40">#66000000</color>
+    <color name="base_color_black_percentage_alpha_45">#73000000</color>
+    <color name="base_color_black_percentage_alpha_50">#80000000</color>
+    <color name="base_color_black_percentage_alpha_55">#8c000000</color>
+    <color name="base_color_black_percentage_alpha_60">#99000000</color>
+    <color name="base_color_black_percentage_alpha_65">#a6000000</color>
+    <color name="base_color_black_percentage_alpha_70">#b3000000</color>
+    <color name="base_color_black_percentage_alpha_75">#bf000000</color>
+    <color name="base_color_black_percentage_alpha_80">#cc000000</color>
+    <color name="base_color_black_percentage_alpha_85">#d9000000</color>
+    <color name="base_color_black_percentage_alpha_90">#e6000000</color>
+    <color name="base_color_black_percentage_alpha_95">#f2000000</color>
+</resources>
