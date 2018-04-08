@@ -126,3 +126,5 @@ public class MainActivity extends BaseActivity implements IMainActivity.View {
         itemsListModel = savedInstanceState.getParcelable("ItemsListModel");
     }
 }
+
+

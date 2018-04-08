@@ -21,6 +21,8 @@ import com.example.amnuaychaipoosri.bg_parallax_carousel_view.constant.Constant;
 import com.example.amnuaychaipoosri.bg_parallax_carousel_view.model.ItemsListModel.ItemsList;
 import com.example.amnuaychaipoosri.bg_parallax_carousel_view.model.ItemsListModel.ItemsListModel;
 
+//import com.example.amnuaychaipoosri.bg_parallax_carousel_view.GlideApp;
+
 public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ItemsListModel itemsListModel = null;
@@ -93,15 +95,15 @@ public class CarouselAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                             // Get view of the first item
                             View firstVisibleItem = vh.linearLayoutManager.findViewByPosition(vh.linearLayoutManager.findFirstVisibleItemPosition());
                             float distanceFromLeft = firstVisibleItem.getLeft(); // distance from the left
-                            float itemSize = firstVisibleItem.getWidth(); // view size
-                            float translateX = (int)distanceFromLeft * 0.2f; // x distance
+                            float translateX = (int)distanceFromLeft * 0.2f; // move x distance
 
-                            // Move the image to the left to achieve parallax
                             vh.bgIv.setTranslationX(translateX);
 
                             // If the view scroll pass the starting position, change color view alpha
                             if (distanceFromLeft <= 0) {
-                                float alpha = (Math.abs(distanceFromLeft) / itemSize * 0.80f);
+                                float itemSize = firstVisibleItem.getWidth(); // view size
+                                float alpha = (Math.abs(distanceFromLeft) / itemSize * 0.80f); // view transparency
+
                                 //Set alpha to image to bring 'fade out' and 'fade in' effect
                                 vh.bgIv.setAlpha(1 - alpha);
                                 //Set alpha to color view to bring 'darker' and 'clearer' effect

@@ -9,11 +9,12 @@ import android.view.ViewGroup;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.amnuaychaipoosri.bg_parallax_carousel_view.GlideApp;
 import com.example.amnuaychaipoosri.bg_parallax_carousel_view.R;
-import com.example.amnuaychaipoosri.bg_parallax_carousel_view.activity.main.viewholder.CarouselItemViewHolder;
 import com.example.amnuaychaipoosri.bg_parallax_carousel_view.activity.main.viewholder.CarouselInvisbileItemViewHolder;
+import com.example.amnuaychaipoosri.bg_parallax_carousel_view.activity.main.viewholder.CarouselItemViewHolder;
 import com.example.amnuaychaipoosri.bg_parallax_carousel_view.model.ItemsListModel.Item;
 
 import java.util.List;
+
 
 public class CarouselItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

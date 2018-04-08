@@ -14,7 +14,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +22,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -63,24 +61,13 @@ public class HttpManager {
         }
     };
 
-    public static HttpManager getInstance() {
+    public static HttpManager getInstance(int mode) {
         if (instance == null) {
             instance = new HttpManager(Constant.Mode.MODE_DEVELOPMENT);
         } else if (currentMode != Constant.Mode.MODE_DEVELOPMENT) {
             instance = new HttpManager(Constant.Mode.MODE_DEVELOPMENT);
         }
         currentMode = Constant.Mode.MODE_DEVELOPMENT;
-        return instance;
-    }
-
-    public static HttpManager getInstance(int mode) {
-        if (instance == null) {
-            instance = new HttpManager(mode);
-        }
-        else if (currentMode != mode) {
-            instance = new HttpManager(mode);
-        }
-        currentMode = mode;
         return instance;
     }
 
@@ -126,9 +113,6 @@ public class HttpManager {
         }
     }
 
-    public Converter<ResponseBody, BaseResponse> getErrorConverter() {
-        return retrofit.responseBodyConverter(BaseResponse.class, new Annotation[0]);
-    }
 
     private static class ValueTypeAdapter implements JsonDeserializer<BaseResponse> {
 
@@ -139,11 +123,6 @@ public class HttpManager {
                 Integer code = jsonObject.get("code").getAsInt();
                 String message = jsonObject.get("message").getAsString();
                 return new BaseResponse(code, message);
-            }
-            else {
-                Integer code = jsonObject.get("code").getAsInt();
-                String message = jsonObject.get("message").getAsString();
-//                }
             }
             return new Gson().fromJson(json, typeOfT);
         }
